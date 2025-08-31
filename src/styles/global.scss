@@ -26,11 +26,11 @@
   display:flex;
   justify-content:center;
   align-items:flex-start;
-  gap: clamp(12rem, 48vw, 64rem);  /* space between cards */
+  gap: clamp(2rem, 4vw, 8rem);  
   margin-top: 8rem;
 }
 
-/* base card – both sides use the same look */
+
 .card{
   position: relative;
   width: 290px;
@@ -38,14 +38,15 @@
   border-radius: 30px;
   background: #000;
   outline: 2px solid #fff;
-  padding: calc(var(--field-top) + var(--input-h) + 12px) 16px 16px; /* <-- */
+  padding: calc(var(--field-top) + var(--input-h) + 12px) 16px 16px;
+  overflow: hidden; 
 }
 
 .field{
   position: absolute;
   left: 50%;
-  top: var(--field-top);     /* pixel-based; easier to align */
-  transform: translateX(-50%); /* only X, no Y lift */
+  top: var(--field-top);     
+  transform: translateX(-50%); 
   width: 240px;
   height: var(--input-h);
 }
@@ -61,7 +62,7 @@
  left: 200px; 
 }
 body {
-  background-color: #1a1a1a; /* change to your desired color */
+  background-color: #1a1a1a; 
 }
 
 .eleven {
@@ -82,6 +83,7 @@ body {
 
 /* From Uiverse.io by Yaseen549 */ 
 .input {
+  
   width:100%;
   border: 2px solid #e8e8e8;
   height: var(--input-h);
@@ -105,9 +107,9 @@ body {
 .input-on-card {
   position: relative;
   left: 50%;
-  top: 10%;                     /* pick your spot */
+  top: 20%;                    
   transform: translate(-50%, -50%);
-  z-index: 2;                   /* make sure it’s above anything inside the card */
+  z-index: 2;                   
   width: 200px;
   border: 2px solid #e8e8e8;
   padding: 10px;
@@ -133,10 +135,57 @@ body {
   position: absolute;
   overflow: hidden;
   font-weight: bold;
-  right: 6px;                  /* inside the input’s right edge */
+  right: 6px;                  
   top: -53%;
   z-index: 10;  
 
+}
+.botonnohoverleft {
+    padding: 5px 20px;
+  top: 5%;
+  border: 2px solid #e8e8e8;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: absolute;
+  overflow: hidden;
+  font-weight: bold;
+  right: 2;                  
+  top: -190%;
+  z-index: 10;  
+}
+
+.botonnohoverright {
+    padding: 5px 20px;
+  top: 5%;
+  border: 2px solid #e8e8e8;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: absolute;
+  overflow: hidden;
+  font-weight: bold;
+  right: 6px;                  
+  top: -190%;
+  z-index: 10;  
+}
+
+.botonnohoverright:hover {
+
+  background: #302e2e;
+}
+
+.botonnohoverleft:hover {
+
+  background: #302e2e;
 }
 
 .boton-elegante::after {
@@ -175,9 +224,9 @@ body {
   z-index: 10;
 }
 .card-item{
-  color:#e8e8e8;          /* pick your color */
-  background:#131313;     /* optional */
-  border:1px solid #444;  /* optional */
+  color:#e8e8e8;          
+  background:#131313;     
+  border:1px solid #444;  
   position: relative;
   padding: 8px calc(var(--remove-size) + var(--remove-gap) + 6px) 8px 12px;
   border: 1px solid #444;
@@ -185,7 +234,7 @@ body {
   list-style: none;
   justify-content: flex-start;
   user-select:none; 
-  cursor:grab;   /* important: don't use space-between */
+  cursor:grab;   
 }
 
 .card-item-text{
@@ -202,10 +251,32 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 56px;           
+  min-height: 56px;
+  max-height: 500px; 
+  overflow-y: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: #666 #333; 
+  
+  /* Webkit scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #888;
+    }
+  }
 }
 
-/* extra belt-and-suspenders in case a marker still shows */
 .card-list li::marker { content: ""; }
 
 .item-remove{
@@ -222,7 +293,7 @@ body {
   padding: 0;
   display: grid;
   place-items: center;
-   transform: translateY(-50%);   /* nudge perfectly to the middle */
+   transform: translateY(-50%);   
  top: 50%;
     position: absolute;
   right: var(--remove-gap);
@@ -231,4 +302,23 @@ body {
   background: #292929;
   border-color: #888;
   
+}
+
+.card-title {
+  color: #e8e8e8;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display";
+  font-weight: 400;
+}
+
+
+.card:first-child .field {
+  top: 120px;  
+  
+}
+
+.card:first-child .card-list {
+  margin-top: 60px;  
 }
