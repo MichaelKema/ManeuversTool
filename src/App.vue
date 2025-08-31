@@ -74,7 +74,7 @@ function importLists() {
     <h1 class="eleven">Crusader Granted Maneuvers Tool</h1>
 
     <div class="cards">
-      <!-- Keep existing input card unchanged -->
+     
       <div class="card">
         <div class="field">
           <button class="botonnohoverleft" @click="importLists">Import</button>
